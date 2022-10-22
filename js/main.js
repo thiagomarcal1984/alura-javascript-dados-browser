@@ -1,5 +1,6 @@
 const form = document.getElementById("novoItem")
 const lista = document.getElementById('lista')
+const items = []
 
 form.addEventListener("submit", (evento) => {
     // Sem o preventDefault, o formulário será enviado  
@@ -27,6 +28,14 @@ function criaElemento(nome, quantidade) {
     novoItem.innerHTML += nome
     
     lista.appendChild(novoItem)
-    localStorage.setItem("nome", nome)
-    localStorage.setItem("quantidade", quantidade)
+
+    // Criação do array que será guardado no LocalStorage.
+    const itemAtual = {
+        "nome" : nome,
+        "quantidade" : quantidade,
+    }
+
+    items.push(itemAtual)
+
+    localStorage.setItem("item", JSON.stringify(items))
 }

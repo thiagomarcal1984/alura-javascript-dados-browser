@@ -36,3 +36,10 @@ Para esvaziar o LocalStorage, use o método clear:
     localStorage.clear()
 
 O método setItem sobreescreve o valor para uma mesma chave.
+
+Salvar um objeto no LocalStorage traz o mesmo problema do innerHtml: é 
+necessário converter a entrada JSON com o método stringify:
+    localStorage.setItem("item", JSON.stringify(itemAtual))
+
+O objeto "stringificado" que vai ficar no LocalStorage precisa ser um array,
+caso você queira atualizar um objeto composto.
