@@ -1,0 +1,9 @@
+O objeto SubmitEvent tem o objeto target, que representa o formulário enviado.
+
+O formulário contém os elementos do formulário em ordem numérica (target[0] 
+acessa o primeiro elemento do array) e um objeto interno chamado elements (que 
+contém os elementos nomeados).
+
+Formas de acessar os objetos do formulário:
+    form[0] => pega o primeiro objeto do formulário.
+    form.elements['elemento'] => pega o objeto 'elemento' no formulário.
