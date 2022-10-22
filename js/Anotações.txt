@@ -34,3 +34,5 @@ Para remover itens do LocalStorage, use o método removeItem:
 
 Para esvaziar o LocalStorage, use o método clear:
     localStorage.clear()
+
+O método setItem sobreescreve o valor para uma mesma chave.

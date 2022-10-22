@@ -5,13 +5,17 @@ form.addEventListener("submit", (evento) => {
     // Sem o preventDefault, o formulário será enviado  
     // e o comportamento não será percebido. 
     evento.preventDefault() 
-    criaElemento(evento.target.elements['nome'].value, evento.target.elements['quantidade'].value)
+    
+    const nome = evento.target.elements['nome']
+    const quantidade = evento.target.elements['quantidade']
+    criaElemento(nome.value, quantidade.value)
+
+    // Limpando o formulário após a inserção.
+    nome.value = ""
+    quantidade.value = ""
 })
 
 function criaElemento(nome, quantidade) {
-    console.log(nome)
-    console.log(quantidade)
-
     const novoItem = document.createElement('li')
     novoItem.classList.add('item')
     
@@ -23,5 +27,6 @@ function criaElemento(nome, quantidade) {
     novoItem.innerHTML += nome
     
     lista.appendChild(novoItem)
-    localStorage.setItem("novoItem", novoItem)
+    localStorage.setItem("nome", nome)
+    localStorage.setItem("quantidade", quantidade)
 }
