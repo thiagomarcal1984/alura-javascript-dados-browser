@@ -23,4 +23,5 @@ function criaElemento(nome, quantidade) {
     novoItem.innerHTML += nome
     
     lista.appendChild(novoItem)
+    localStorage.setItem("novoItem", novoItem)
 }

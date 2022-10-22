@@ -17,3 +17,20 @@ representa a tag é inserido como [object HTMLElement], não como uma tag.
 
 Não use o método appendChild para inserir uma string. Ela acrescenta apenas
 elementos do tipo Node.
+
+LocalStorage é um meio de armazenamento no navegador. É possível visualizá-los
+na Devtools do browser. Você pode acessá-lo pelo objeto localStorage:
+    console.log(localStorage)
+
+Para acrescentar um item ao LocalStorage, use o método setItem:
+    localStorage.setItem(key, value)
+
+O item inserido pode ser acessado pelo nome da chave ou pelo método getItem:
+    console.log(localStorage.key) // Sem aspas duplas.
+    console.log(localStorage.getItem("key")) // Com aspas duplas.
+
+Para remover itens do LocalStorage, use o método removeItem:
+    localStorage.removeItem(key)
+
+Para esvaziar o LocalStorage, use o método clear:
+    localStorage.clear()
