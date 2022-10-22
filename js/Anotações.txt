@@ -7,3 +7,13 @@ contém os elementos nomeados).
 Formas de acessar os objetos do formulário:
     form[0] => pega o primeiro objeto do formulário.
     form.elements['elemento'] => pega o objeto 'elemento' no formulário.
+
+Diferença entre o método appendChild e a propriedade innerHtml:
+    appendChild adiciona um elemento HTML dentro da tag que chama o método.
+    innerHtml modifica o contéudo interno da tag que chama o método.
+
+Não use o innerHtml para adicionar tags, porque o objeto JavaScript que 
+representa a tag é inserido como [object HTMLElement], não como uma tag.
+
+Não use o método appendChild para inserir uma string. Ela acrescenta apenas
+elementos do tipo Node.
