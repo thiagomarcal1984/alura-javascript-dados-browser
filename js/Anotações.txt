@@ -105,3 +105,18 @@ Arrow function x Function com declaração completa.
         elementoBotao.addEventListener("click", function () {
             console.log(this) // Imprime o objeto que chamou (no caso, button).
         })
+
+
+O método splice nos arrays do JavaScript serve para remover elementos dentro 
+dele e tem dois parâmetros: a posição a  partir da qual os elementos serão 
+excluídos e o número de elementos para excluir:
+    items.splice(3, 2); // Remove dois elementos a partir da posição 3.
+
+O método findIndex nos arrays do JavaScript retorna a posição do elemento 
+procurado ou -1 se não encontrar o elemento. Suponha um array:
+    let nums = [ "Um", "Dois", "Três" ] 
+    let pos = nums.findIndex( obj => obj === "Dois") // Retorna 1 positivo.
+    let pos = nums.findIndex( obj => obj === "Quatro") // Retorna 1 negativo.
+
+Combinando isso, para remover um item do array com o id 1, usamos: 
+    items.splice(items.findIndex( elemento => elemento.id === id), 1)

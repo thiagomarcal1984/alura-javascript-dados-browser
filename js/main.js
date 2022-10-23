@@ -28,9 +28,10 @@ form.addEventListener("submit", (evento) => {
         itemAtual.id = existe.id
         atualizaElemento(itemAtual)
         // Atualizar o array antes de salvar no LocalStorage
-        items[existe.id] = itemAtual 
+        items[items.findIndex(elemento => elemento.id === existe.id)] = itemAtual 
     } else {
-        itemAtual.id = items.length
+        // O número do ID é o próximo número após o ID do último elemento inserido.
+        itemAtual.id = items[items.length - 1] ? items[items.length -1].id + 1 : 0
         criaElemento(itemAtual)
         // Atualizar o array antes de salvar no LocalStorage
         items.push(itemAtual)
@@ -57,7 +58,7 @@ function criaElemento(item) {
     novoItem.appendChild(numeroItem)
     novoItem.innerHTML += item.nome
 
-    novoItem.appendChild(botaoDeleta())
+    novoItem.appendChild(botaoDeleta(item.id))
     
     lista.appendChild(novoItem)
 }
@@ -67,18 +68,24 @@ function atualizaElemento(item) {
     document.querySelector("[data-id='" + item.id + "']").innerHTML = item.quantidade
 }
 
-function botaoDeleta() {
+function botaoDeleta(id) {
     const elementoBotao = document.createElement("button")
     elementoBotao.innerText = 'X'
 
     elementoBotao.addEventListener("click", function () {
         // Remove o elemento que contém o botão.
-        deletaElemento(this.parentElement)
+        deletaElemento(this.parentElement, id)
     })
 
     return elementoBotao
 }
 
-function deletaElemento(tag) {
+function deletaElemento(tag, id) {
     tag.remove()
+    // Remover item do array
+    items.splice(items.findIndex( elemento => elemento.id === id), 1)
+    console.log(items)
+
+    // Escrever items no LocalStorage.
+    localStorage.setItem("items", JSON.stringify(items))
 }
