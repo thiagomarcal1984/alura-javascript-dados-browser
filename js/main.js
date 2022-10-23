@@ -56,6 +56,8 @@ function criaElemento(item) {
     // Adiciona o elemento novoItem 
     novoItem.appendChild(numeroItem)
     novoItem.innerHTML += item.nome
+
+    novoItem.appendChild(botaoDeleta())
     
     lista.appendChild(novoItem)
 }
@@ -63,4 +65,20 @@ function criaElemento(item) {
 function atualizaElemento(item) {
     // Varre qualquer tag que tenha o atributo data-id igual ao ID do item.
     document.querySelector("[data-id='" + item.id + "']").innerHTML = item.quantidade
+}
+
+function botaoDeleta() {
+    const elementoBotao = document.createElement("button")
+    elementoBotao.innerText = 'X'
+
+    elementoBotao.addEventListener("click", function () {
+        // Remove o elemento que contém o botão.
+        deletaElemento(this.parentElement)
+    })
+
+    return elementoBotao
+}
+
+function deletaElemento(tag) {
+    tag.remove()
 }

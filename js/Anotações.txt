@@ -91,3 +91,17 @@ conferir o uso do método find() e do operador de comparação ===:
 
 O código acima verifica se existe algum elemento com o mesmo nome. Caso exista,
 ele guarda o objeto na const existe, ou undefined caso não exista.
+
+Arrow function x Function com declaração completa.
+
+    Arrow function: o contexto (this) é a própria janela:
+        // () => {}
+        elementoBotao.addEventListener("click", () =>{
+            console.log(this) // Imprime o objeto Window.
+        })
+
+    Declaração completa da função: o contexto (this) é o botão clicado:
+        // function () {}
+        elementoBotao.addEventListener("click", function () {
+            console.log(this) // Imprime o objeto que chamou (no caso, button).
+        })
