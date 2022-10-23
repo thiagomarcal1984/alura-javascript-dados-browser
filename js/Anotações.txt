@@ -83,3 +83,11 @@ Detalhando:
         às declarações com "let".
     4)  Uma convenção: use const como regra, let como exceção (para alterar o
         valor da variável). Declarações com "var" estão se tornando obsoletas.
+
+Nesta parte do código retirado do projeto Mochila de Viagem, é possível 
+conferir o uso do método find() e do operador de comparação ===:
+
+    const existe = itens.find( elemento => elemento.nome === nome.value)
+
+O código acima verifica se existe algum elemento com o mesmo nome. Caso exista,
+ele guarda o objeto na const existe, ou undefined caso não exista.
