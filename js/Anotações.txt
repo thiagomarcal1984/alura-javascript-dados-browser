@@ -68,3 +68,18 @@ atualizamos um elemento já existente. Apenas a tela é atualizada.
 As atualizações no LocalStorage necessariamente consiste na atualização de
 toda a chave. Não é possível, por exemplo, atualizar um elemento de um array
 dentro de uma chave do LocalStorage.
+
+Declaração de variáveis em JavaScript:
+https://www.alura.com.br/artigos/entenda-diferenca-entre-var-let-e-const-no-javascript?gclid=Cj0KCQiApL2QBhC8ARIsAGMm-KEr2-dj03os9u3elTSjRFtl_e2ePc7-v9snbcsYkQsFYfYYGLaa54kaAuluEALw_wcB
+
+Detalhando:
+    1)  Declarações com "var" permitem hoisting (içamento, move declarações 
+        para antes do seu uso). "var" tem escopo global.
+    2)  Declarações com "let" só permitem uso das variáveis dentro do seu local
+        escope, ou seja, não há hoisting para declarações com let. Por padrão,
+        essas declarações preenchem a variável com o valor "undefined".
+    3)  Declarações com "const" *forçam* a inicialização da variável e impedem
+        a substituição de seu valor. Constantes também tem escopo local, igual 
+        às declarações com "let".
+    4)  Uma convenção: use const como regra, let como exceção (para alterar o
+        valor da variável). Declarações com "var" estão se tornando obsoletas.
