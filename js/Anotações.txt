@@ -57,3 +57,10 @@ Sintaxe de uma array function:
             console.log(variavel_temporaria)
         }
     )
+
+Para selecionar elementos pela propriedade data-id, use:
+    // O seletor seria: data-id="valor-id" (aspas duplas pro valor).
+    document.querySelector("[data-id='valor-id']") // Aspas simples pro valor.
+
+O código ainda está com um problema: o LocalStorage não é atualizado quando
+atualizamos um elemento já existente. Apenas a tela é atualizada.

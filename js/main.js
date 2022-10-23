@@ -16,15 +16,23 @@ form.addEventListener("submit", (evento) => {
     const nome = evento.target.elements['nome']
     const quantidade = evento.target.elements['quantidade']
 
+    const existe = items.find( elemento => elemento.nome === nome.value)
+
     // Criação do array que será guardado no LocalStorage.
     const itemAtual = {
         "nome" : nome.value,
         "quantidade" : quantidade.value,
     }
-
-    criaElemento(itemAtual)
     
-    items.push(itemAtual)
+    if (existe) {
+        itemAtual.id = existe.id
+        atualizaElemento(itemAtual)
+    } else {
+        itemAtual.id = items.length
+        criaElemento(itemAtual)
+        items.push(itemAtual)
+    }
+
 
     localStorage.setItem("items", JSON.stringify(items))
 
@@ -34,16 +42,22 @@ form.addEventListener("submit", (evento) => {
 })
 
 // A função criaElemento trata da exibição dos dados na listagem.
-function criaElemento(itemAtual) {
+function criaElemento(item) {
     const novoItem = document.createElement('li')
     novoItem.classList.add('item')
     
     const numeroItem = document.createElement('strong')
-    numeroItem.innerHTML = itemAtual.quantidade
+    numeroItem.innerHTML = item.quantidade
+    numeroItem.dataset.id = item.id
         
     // Adiciona o elemento novoItem 
     novoItem.appendChild(numeroItem)
-    novoItem.innerHTML += itemAtual.nome
+    novoItem.innerHTML += item.nome
     
     lista.appendChild(novoItem)
+}
+
+function atualizaElemento(item) {
+    // Varre qualquer tag que tenha o atributo data-id igual ao ID do item.
+    document.querySelector("[data-id='" + item.id + "']").innerHTML = item.quantidade
 }
