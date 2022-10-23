@@ -43,3 +43,17 @@ necessário converter a entrada JSON com o método stringify:
 
 O objeto "stringificado" que vai ficar no LocalStorage precisa ser um array,
 caso você queira atualizar um objeto composto.
+
+Em JavaScript, a notação abaixo serve para atribuir um valor padrão:
+    const valor = objeto || "Valor padrão"
+
+JSON.stringify converte um objeto JSON para String. 
+O contrário é JSON.parse (converte texto para JSON).
+
+Sintaxe de uma array function:
+    // objeto.metodo(   () => { comando }    )
+    lista.forEach(
+        (variavel_temporaria) => {
+            console.log(variavel_temporaria)
+        }
+    )

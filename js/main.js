@@ -1,6 +1,10 @@
 const form = document.getElementById("novoItem")
 const lista = document.getElementById('lista')
-const items = []
+const items = JSON.parse(localStorage.getItem('items')) || []
+
+items.forEach( (elemento) => {
+    console.log(elemento.nome, elemento.quantidade)
+})
 
 form.addEventListener("submit", (evento) => {
     // Sem o preventDefault, o formulário será enviado  
