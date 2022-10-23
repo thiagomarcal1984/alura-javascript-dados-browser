@@ -64,3 +64,7 @@ Para selecionar elementos pela propriedade data-id, use:
 
 O código ainda está com um problema: o LocalStorage não é atualizado quando
 atualizamos um elemento já existente. Apenas a tela é atualizada.
+
+As atualizações no LocalStorage necessariamente consiste na atualização de
+toda a chave. Não é possível, por exemplo, atualizar um elemento de um array
+dentro de uma chave do LocalStorage.

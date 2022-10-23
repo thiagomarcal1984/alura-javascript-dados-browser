@@ -27,9 +27,12 @@ form.addEventListener("submit", (evento) => {
     if (existe) {
         itemAtual.id = existe.id
         atualizaElemento(itemAtual)
+        // Atualizar o array antes de salvar no LocalStorage
+        items[existe.id] = itemAtual 
     } else {
         itemAtual.id = items.length
         criaElemento(itemAtual)
+        // Atualizar o array antes de salvar no LocalStorage
         items.push(itemAtual)
     }
 
